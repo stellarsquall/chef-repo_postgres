@@ -1,0 +1,7 @@
+# frozen_string_literal: true
+source 'https://supermarket.chef.io'
+
+metadata
+
+cookbook 'postgresql', git: 'https://github.com/sous-chefs/postgresql.git'
+#cookbook 'locale', path: '~/.berkshelf/cookbooks/locale-2.0.1/'

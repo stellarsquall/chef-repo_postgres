@@ -1,0 +1,50 @@
+<%
+rpm_based_platforms = %w(centos-6 centos-7 fedora-25)
+deb_based_platforms = %w(ubuntu-14.04 ubuntu-16.04 debian-7 debian-8)
+opensuse_platforms = %w(opensuse-leap)
+%>
+---
+driver:
+  name: vagrant
+  customize:
+    cableconnected1: 'on'
+
+provisioner:
+  name: chef_zero
+  require_chef_omnibus: '12.16.42'
+  product_version: '12.16.42'
+  deprecations_as_errors: true
+
+verifier:
+  name: inspec
+
+platforms:
+  - name: amazonlinux
+    driver_config:
+      box: mvbcoding/awslinux
+  - name: centos-6
+  - name: centos-7
+  - name: debian-7
+  - name: debian-8
+  - name: debian-9
+  - name: fedora-26
+  - name: ubuntu-14.04
+  - name: ubuntu-16.04
+
+suites:
+- name: repo
+  run_list:
+    - recipe[test::repository]
+- name: server_install
+  run_list:
+    - recipe[test::server_install]
+- name: client_install
+  run_list:
+    - recipe[test::client_install]
+- name: access
+  run_list:
+    - recipe[test::access]
+- name: pg_gem
+  run_list:
+    - recipe[test::pg_gem]
+

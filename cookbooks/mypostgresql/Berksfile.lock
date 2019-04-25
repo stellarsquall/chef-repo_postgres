@@ -1,0 +1,25 @@
+DEPENDENCIES
+  mypostgresql
+    path: .
+    metadata: true
+  postgresql
+    git: https://github.com/sous-chefs/postgresql.git
+    revision: f57357e6088c05880e4d8ef5614dd507be161ff0
+
+GRAPH
+  build-essential (8.1.1)
+    mingw (>= 1.1)
+    seven_zip (>= 0.0.0)
+  locale (2.0.1)
+  mingw (2.0.2)
+    seven_zip (>= 0.0.0)
+  mypostgresql (1.0.0)
+    locale (>= 0.0.0)
+    postgresql (= 7.0.0)
+  openssl (8.1.2)
+  postgresql (7.0.0)
+    build-essential (>= 2.0.0)
+    openssl (>= 4.0)
+  seven_zip (3.0.0)
+    windows (>= 0.0.0)
+  windows (4.2.5)
